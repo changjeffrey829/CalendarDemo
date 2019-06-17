@@ -2,7 +2,7 @@
 Basic demo for Calendar using EventKit and EventKitUI
 
 ## Goal
-Using show calendar and allow user to add or remove events
+Show calendar and allow user to add or remove events
 
 ### Design Architecture
 MVVM
