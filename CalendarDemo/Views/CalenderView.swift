@@ -58,7 +58,6 @@ class CalenderView: UIView {
         weekdaysView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         weekdaysView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         weekdaysView.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
         addSubview(myCollectionView)
         myCollectionView.topAnchor.constraint(equalTo: weekdaysView.bottomAnchor, constant: 0).isActive = true
         myCollectionView.leftAnchor.constraint(equalTo: leftAnchor, constant: 0).isActive = true
