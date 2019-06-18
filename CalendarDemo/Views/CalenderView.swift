@@ -19,10 +19,8 @@ struct Colors {
 }
 
 class CalenderView: UIView {
-    let viewModel: CalendarViewModel
     
     override init(frame: CGRect) {
-        viewModel = CalendarViewModel()
         Style.themeDark()
         super.init(frame: frame)
         backgroundColor = Style.bgColor
@@ -51,7 +49,6 @@ class CalenderView: UIView {
         monthView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         monthView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         monthView.heightAnchor.constraint(equalToConstant: 35).isActive = true
-        monthView.delegate = self
         
         addSubview(weekdaysView)
         weekdaysView.topAnchor.constraint(equalTo: monthView.bottomAnchor).isActive = true
@@ -106,13 +103,5 @@ extension CalenderView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 8.0
-    }
-}
-
-extension CalenderView: MonthViewDelegate {
-    func didChangeMonth(monthIndex: Int, year: Int) {
-        viewModel.changeMonth(monthIndex: monthIndex, year: year)
-        myCollectionView.reloadData()
-        monthView.btnLeft.isEnabled = viewModel.shouldLeftMonthButtonEnable()
     }
 }

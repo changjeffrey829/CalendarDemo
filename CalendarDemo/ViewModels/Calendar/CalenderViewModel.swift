@@ -54,6 +54,7 @@ class CalendarViewModel {
                 numOfDaysInMonth[monthIndex] = 28
             }
         }
+        
         firstWeekDayOfMonth = getFirstWeekDay()
     }
     

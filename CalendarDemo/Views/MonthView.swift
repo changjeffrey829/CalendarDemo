@@ -44,7 +44,7 @@ class MonthView: UIView {
                 currentYear -= 1
             }
         }
-        lblName.text="\(monthsArr[currentMonthIndex]) \(currentYear)"
+        lblName.text = "\(monthsArr[currentMonthIndex]) \(currentYear)"
         delegate?.didChangeMonth(monthIndex: currentMonthIndex, year: currentYear)
     }
     

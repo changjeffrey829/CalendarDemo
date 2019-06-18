@@ -27,6 +27,7 @@ class CalendarViewController: UIViewController {
         super.viewDidLoad()
         calendarView.myCollectionView.delegate = self
         calendarView.myCollectionView.dataSource = self
+        calendarView.monthView.delegate = self
         view = calendarView
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "launch event vc", style: .done, target: self, action: #selector(addNewEvent))
     }
@@ -58,5 +59,13 @@ extension CalendarViewController: UICollectionViewDataSource {
         cell?.backgroundColor = UIColor.clear
         cell?.dateViewModel = calendarViewModel.createDateViewModel(indexPath: indexPath)
         return cell ?? DateCVCell()
+    }
+}
+
+extension CalendarViewController: MonthViewDelegate {
+    func didChangeMonth(monthIndex: Int, year: Int) {
+        calendarViewModel.changeMonth(monthIndex: monthIndex, year: year)
+        calendarView.myCollectionView.reloadData()
+        calendarView.monthView.btnLeft.isEnabled = calendarViewModel.shouldLeftMonthButtonEnable()
     }
 }
